@@ -29,12 +29,12 @@
 </dependency>
 ```
 
-细心一点就会发现在 jackson-mapper-asl.jar 中，就找不到 org.springframework.http.converter.json.MappingJacksonHttpMessageConverter 方法，
-启动项目时果不其然报错了
+细心一点就会发现在 jackson-mapper-asl.jar 中，找不到org.springframework.http.converter.json.MappingJacksonHttpMessageConverter 方法，
+项目启动时果不其然报错了
 
 ```java
 Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMessageConverte‌​‌​r] for bean with name 'mappingJacksonHttpMessageConverter' defined in class path resource [spring-mvc.xml]; 
-    .....
+.....
 ```
 
 最终在 Stack Overflow 上找到的答案：
