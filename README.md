@@ -10,23 +10,23 @@
 ## 搭建过程遇见的问题
 
 在配置SpringMVC返回的JSON的时候，按照教程上所写配置如下：
-```javascript
-    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->  
-    <bean id="mappingJacksonHttpMessageConverter"  
-        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
-        <property name="supportedMediaTypes">  
-            <list>  
-                <value>text/html;charset=UTF-8</value>  
-            </list>  
-        </property>  
-    </bean>
+```xml
+<!--避免IE执行AJAX时，返回JSON出现下载文件 -->  
+<bean id="mappingJacksonHttpMessageConverter"  
+    class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+    <property name="supportedMediaTypes">  
+        <list>  
+            <value>text/html;charset=UTF-8</value>  
+        </list>  
+    </property>  
+</bean>
     
-    <!-- 映入JSON -->  
-    <dependency>  
-        <groupId>org.codehaus.jackson</groupId>  
+<!-- 映入JSON -->  
+<dependency>  
+    <groupId>org.codehaus.jackson</groupId>  
         <artifactId>jackson-mapper-asl</artifactId>  
-        <version>1.9.13</version>  
-    </dependency>
+    <version>1.9.13</version>  
+</dependency>
 ```
 
 细心一点就会发现在 jackson-mapper-asl.jar 中，就找不到 org.springframework.http.converter.json.MappingJacksonHttpMessageConverter 方法，
@@ -48,27 +48,28 @@ Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMes
 
 修改后的配置如下：
 
-	<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->  
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
-        <property name="messageConverters">  
-            <list>  
-                <ref bean="mappingJacksonHttpMessageConverter" /> <!-- JSON转换器 -->  
-            </list>  
-        </property>  
-    </bean>
-    
-    <!-- jackson版本号 -->
-    <jackson.version>2.6.0-rc1</jackson.version>
-    
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-    </dependency>
-    
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
+```xml
+<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->  
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+    <property name="messageConverters">  
+        <list>  
+            <ref bean="mappingJacksonHttpMessageConverter" /> <!-- JSON转换器 -->  
+        </list>  
+    </property>  
+</bean>
+   
+<!-- jackson版本号 -->
+<jackson.version>2.6.0-rc1</jackson.version>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
         <version>${jackson.version}</version>
-    </dependency>
+</dependency>
     
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+    <version>${jackson.version}</version>
+</dependency>
+```
