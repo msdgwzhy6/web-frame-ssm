@@ -58,6 +58,7 @@ Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMes
         </list>
 	</property>
 </bean>
+
 <!-- jackson版本号 -->
 <jackson.version>2.6.0-rc1</jackson.version>
 
