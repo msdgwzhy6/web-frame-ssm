@@ -41,3 +41,31 @@
 原文地址：
 
 - [classnotfoundexception-org-springframework-http-converter-json-mappingjacksonht](http://stackoverflow.com/questions/20969722/classnotfoundexception-org-springframework-http-converter-json-mappingjacksonht)
+- [jackson-2-0-with-spring-3-1 +](http://stackoverflow.com/questions/10420040/jackson-2-0-with-spring-3-1/13435703#13435703)
+
+修改后的配置如下：
+
+	<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->  
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+        <property name="messageConverters">  
+            <list>  
+                <ref bean="mappingJacksonHttpMessageConverter" /> <!-- JSON转换器 -->  
+            </list>  
+        </property>  
+    </bean>
+    
+    <!-- jackson版本号 -->
+    <jackson.version>2.6.0-rc1</jackson.version>
+    
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
+    </dependency>
+    
