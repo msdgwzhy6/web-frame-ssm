@@ -49,15 +49,14 @@ Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMes
 修改后的配置如下：
 
 ```xml
-<!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->  
-<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
-    <property name="messageConverters">  
-        <list>  
-            <ref bean="mappingJacksonHttpMessageConverter" /> <!-- JSON转换器 -->  
-        </list>  
-    </property>  
+<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+<bean id="mappingJacksonHttpMessageConverter"               class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    <property name="supportedMediaTypes">
+        <list>
+            <value>text/html;charset=UTF-8</value>
+        </list>
+	</property>
 </bean>
-   
 <!-- jackson版本号 -->
 <jackson.version>2.6.0-rc1</jackson.version>
 
