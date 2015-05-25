@@ -11,7 +11,7 @@
 
 在配置SpringMVC返回的JSON的时候，按照教程上所写配置如下：
 ```xml
-<!--避免IE执行AJAX时，返回JSON出现下载文件 -->  
+<!-- 避免IE执行AJAX时，返回JSON出现下载文件 -->  
 <bean id="mappingJacksonHttpMessageConverter"  
     class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
     <property name="supportedMediaTypes">  
