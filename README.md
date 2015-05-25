@@ -1,6 +1,6 @@
 # SpringMVC - Spring - MyBatis 框架整合
 
-搭建的过程参考CSDN上的一篇文章 [SSM框架——详细整合教程（Spring+SpringMVC+MyBatis）](http://blog.csdn.net/zhshulin/article/details/37956105?utm_source=tuicool)，在此教程之上将数据源dbcp更改为druid，事务管理配置，包结构划分。 
+搭建的过程参考CSDN上的一篇文章 [SSM框架——详细整合教程（Spring+SpringMVC+MyBatis）](http://blog.csdn.net/zhshulin/article/details/37956105?utm_source=tuicool)，在此教程之上将dbcp数据源更改为druid，事务管理的相关配置，包结构划分 等。
 
 
 ## 框架版本
@@ -9,7 +9,7 @@
 
 ## 搭建过程遇见的问题
 
-在配置SpringMVC返回的JSON的时候，按照教程上所写配置如下：
+在处理SpringMVC返回的JSON的时候，按照教程上所写配置如下：
 ```xml
 <!-- 避免IE执行AJAX时，返回JSON出现下载文件 -->  
 <bean id="mappingJacksonHttpMessageConverter"  
