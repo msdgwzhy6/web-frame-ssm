@@ -1,6 +1,6 @@
 # SpringMVC - Spring - MyBatis 框架整合
 
-搭建的过程参考CSDN上的一篇文章 [SSM框架——详细整合教程（Spring+SpringMVC+MyBatis）](http://blog.csdn.net/zhshulin/article/details/37956105?utm_source=tuicool)
+搭建的过程参考CSDN上的一篇文章 [SSM框架——详细整合教程（Spring+SpringMVC+MyBatis）](http://blog.csdn.net/zhshulin/article/details/37956105?utm_source=tuicool)，在此教程之上将数据源dbcp更改为druid，事务管理配置，包结构划分。 
 
 
 ## 框架版本
