@@ -10,7 +10,7 @@
 ## 搭建过程遇见的问题
 
 在配置SpringMVC返回的JSON的时候，按照教程上所写配置如下：
-
+```javascript
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->  
     <bean id="mappingJacksonHttpMessageConverter"  
         class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
@@ -27,12 +27,15 @@
         <artifactId>jackson-mapper-asl</artifactId>  
         <version>1.9.13</version>  
     </dependency>
+```
 
 细心一点就会发现在 jackson-mapper-asl.jar 中，就找不到 org.springframework.http.converter.json.MappingJacksonHttpMessageConverter 方法，
 启动项目时果不其然报错了
 
-    Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMessageConverte‌​‌​r] for bean with name 'mappingJacksonHttpMessageConverter' defined in class path resource [spring-mvc.xml]; 
+```java
+Cannot find class [org.springframework.http.converter.json.MappingJacksonHttpMessageConverte‌​‌​r] for bean with name 'mappingJacksonHttpMessageConverter' defined in class path resource [spring-mvc.xml]; 
     .....
+```
 
 最终在 Stack Overflow 上找到的答案：
 
